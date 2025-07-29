@@ -52,5 +52,27 @@ Ejemplo:
 
     
 **3. Analisis del archivo**
-**a.**
-**b.**
+/
+**a. Descripción del organismo**
+/
+/
+**b. Investigue:**
+* ¿Cuantos features contiene el archivo? 734551
+* ¿Cuantas regiones de la secuencia (cromosomas) contiene el archivo? 4457
+* ¿Cuántos genes están listados en el organismo? 17477, que se dividen de la siguiente manera:
+  * 14551 gene
+  * 2861 ncRNA_gene
+  * 65 pseudogene
+* ¿Cuál es el top 10 de tipo de features (columna 3) más anotados en el genoma?
+  * 294399 exon
+  * 275104 CDS
+  * 87769 biological_region
+  * 23225 mRNA
+  * 16191 five_prime_UTR
+  * 14551 gene
+  * 10875 three_prime_UTR
+  * 4514 lnc_RNA
+  * 4457 region
+  * 2861 ncRNA_gene
+ 
+## Referencias
