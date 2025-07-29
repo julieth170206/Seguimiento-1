@@ -1,21 +1,20 @@
-#Descargar el archvivo
+#Descargar el archivo. El comando wget permite descargar archivos desde internet directamente desde la terminal. En este caso, se descarga un archivo GFF3 comprimido.
 wget https://ftp.ensembl.org/pub/current_gff3/junco_hyemalis/Junco_hyemalis.ASM382977v1.114.gff3.gz
 
-#Descomprimir el archivo
+#Descomprimir el archivo. El comando gunzip se usa para descomprimir archivos con extensión .gz. En este caso, se descomprime el archivo GFF3 descargado para poder leerlo y analizarlo.
 gunzip Junco_hyemalis.ASM382977v1.114.gff3.gz
 
-#Analisis del archivo
+#Análisis del archivo
 
-#Para saber cuantas features contiene el archivo se puede realizar de dos maneras: la primera es usando grep -v (este flag le dice al equipo que son aquellos que no hacen match), y la segunda es abrir el archivo (cat), solo enfocarnos en la columna tres (que es type que son los features), y para ambos casos se termina con wc -l, que es el que nos va a contar las lineas.
-grep -v "^#" Junco_hyemalis.ASM382977v1.114.gff3 | wc -l
+# Para saber cuántas features (elementos) hay en el archivo, se puede utilizar este comando. Primero se abre el archivo completo con 'cat', luego se extrae la columna 3 que corresponde al tipo de feature usando 'cut -f 3', y finalmente se cuentan todas las líneas con 'wc -l'. Este comando incluye tanto las líneas informativas como las de comentario, por lo que el resultado puede ser ligeramente mayor al real.
 cat Junco_hyemalis.ASM382977v1.114.gff3 | cut -f 3 | wc -l
 
-#Para saber cuantas regiones de la secuencia (cromosomas) contiene el archivo
+#Para saber cuántas regiones de la secuencia (cromosomas) contiene el archivo. Según la especificación del formato GFF, las regiones de secuencia se indican con "##sequence-region". Con grep "^##sequence-region" se filtran estas líneas, luego cut -f 3 selecciona la columna 3, y wc -l cuenta cuántas hay. Este comando puede no funcionar como se espera si esas líneas no siguen el formato tabular.
 grep "^##sequence-region" Junco_hyemalis.ASM382977v1.114.gff3 | cut -f 3 | wc -l 
 
-#Para saber cuantos genes estan listados en el organismo. 
-cat Junco_hyemalis.ASM382977v1.114.gff3 | grep -v "^#"  | cut -f 3 | sort | uniq -c | sort -rn | grep -i "gene"
+#Para saber cuántos genes están listados en el archivo del organismo. El primer comando filtra las líneas que no son comentarios, luego extrae la tercera columna con cut -f 3, que representa el tipo de feature, cuenta cuántas veces aparece cada uno con uniq -c, los ordena de mayor a menor con sort -rn, y finalmente filtra las que contienen "gene". El segundo comando cuenta directamente las líneas que contienen "gene" en la tercera columna. Se hizo separado para poder saber cada feature cuantos tiene, y cuales son las features.
+cat Junco_hyemalis.ASM382977v1.114.gff3 | grep -v "^#" | cut -f 3 | sort | uniq -c | sort -rn | grep -i "gene"
 cat Junco_hyemalis.ASM382977v1.114.gff3 | grep -v "^#" | cut -f 3 | grep -i "gene" | wc -l
 
-#Top 10 de features
-cat Junco_hyemalis.ASM382977v1.114.gff3 | grep -v "^#"  | cut -f 3 | sort | uniq -c | sort -rn | head  
+#Top 10 de features. Se eliminan los comentarios, se extrae la tercera columna, se ordena para agrupar iguales, se cuenta cuántas veces aparece cada tipo con uniq -c, se ordena de mayor a menor frecuencia, y se muestran los 10 más frecuentes con head.
+cat Junco_hyemalis.ASM382977v1.114.gff3 | grep -v "^#" | cut -f 3 | sort | uniq -c | sort -rn | head  
