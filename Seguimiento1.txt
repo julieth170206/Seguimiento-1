@@ -1,1 +1,6 @@
+#Descargar el archvo 
+wget https://ftp.ensembl.org/pub/current_gff3/junco_hyemalis/Junco_hyemalis.ASM382977v1.114.gff3.gz
+
+#Descomprimir el archivo
+gunzip Junco_hyemalis.ASM382977v1.114.gff3.gz
 
