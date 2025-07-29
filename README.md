@@ -50,21 +50,22 @@ Este concepto no debe confundirse con el "frame", que se refiere al valor de una
 
 Ejemplo:  
 
-        0  ctg123 . exon            3000  3902  .  +  .  ID=exon00003;Parent=mRNA00001,mRNA00003
-        1  ctg123 . exon            5000  5500  .  +  .  ID=exon00004;Parent=mRNA00001,mRNA00002,mRNA00003
+        0  sequid | source | type | start | end  | score | strand | phase | attribute                                         
+        1  ctg123 |   .    | exon |  5000 | 5500 |   .   |    +   |   .   | ID=exon00004;Parent=mRNA00001,mRNA00002,mRNA00003 
 
 **3. Analisis del archivo**
 /
 **a. Descripción del organismo**
 /
+Junco hyemalis, también conocido como Junco de Ojos Negros, es una especie de ave pasiforme de la familia Emberizidae propia de América del Norte. Los Juncos de Ojo Oscuro se reproducen en bosques a lo largo de casi todo Norteamérica, y a elevaciones que van desde el nivel del mar hasta 3353 m de altura. Son mayormente consumidores de semillas, especialmente de pamplina, alforfón, bledos, alazán, y otras similares, las cuales representan alrededor de un 75% de su dieta a lo largo del año. (Junco De Ojo Oscuro | Celebrate Urban Birds, 2016)
 /
 **b. Investigue:**
 * ¿Cuantos features contiene el archivo? 734551
 * ¿Cuantas regiones de la secuencia (cromosomas) contiene el archivo? 4457
 * ¿Cuántos genes están listados en el organismo? 17477, que se dividen de la siguiente manera:
-  * 14551 gene (Una region(es) que incluye todos los elementos necesarios de la secuencia para codificar un transcrito funcional)
-  * 2861 ncRNA_gene (non coding RNA)
-  * 65 pseudogene
+  * 14551 gene (Una region(es) que incluye todos los elementos necesarios de la secuencia para codificar un transcrito funcional.)
+  * 2861 ncRNA_gene (Non-coding RNA.)
+  * 65 pseudogene (Una secuencia que se parece a un gen funcional, en otro locus dentro del genoma, que no es funcional como consecuencia de mutaciones que previenen su trasncripcion o traducción.)
 * ¿Cuál es el top 10 de tipo de features (columna 3) más anotados en el genoma?
   * 294399 exon
   * 275104 CDS
@@ -78,5 +79,6 @@ Ejemplo:
   * 2861 ncRNA_gene
  
 ## Referencias
+Junco de Ojo Oscuro | Celebrate Urban Birds. (2016, August 31). Celebrate Urban Birds. https://celebrateurbanbirds.org/es/learn/birds/focal-species/junco-de-ojo-oscuro/#:~:text=de%20Ojo%20Oscuro-,Especies%20Regionales,%C2%BFC%C3%B3mo%20identificar%20el%20ave?  
 Sacado de Bio explain  
 Srl, B. G. (2021, July 29). lcnRNA: long non-coding RNA. Breda Genetics Srl. https://bredagenetics.com/lcnrna-long-non-coding-rna/
