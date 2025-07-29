@@ -48,9 +48,11 @@ Este concepto no debe confundirse con el "frame", que se refiere al valor de una
 * Ontology_term: una referencia cruzada a un término de ontología.
 * Is_circular: para indicar si una característica es circular.
 
-Ejemplo:
+Ejemplo:  
 
-    
+        0  ctg123 . exon            3000  3902  .  +  .  ID=exon00003;Parent=mRNA00001,mRNA00003
+        1  ctg123 . exon            5000  5500  .  +  .  ID=exon00004;Parent=mRNA00001,mRNA00002,mRNA00003
+
 **3. Analisis del archivo**
 /
 **a. Descripción del organismo**
@@ -60,8 +62,8 @@ Ejemplo:
 * ¿Cuantos features contiene el archivo? 734551
 * ¿Cuantas regiones de la secuencia (cromosomas) contiene el archivo? 4457
 * ¿Cuántos genes están listados en el organismo? 17477, que se dividen de la siguiente manera:
-  * 14551 gene
-  * 2861 ncRNA_gene
+  * 14551 gene (Una region(es) que incluye todos los elementos necesarios de la secuencia para codificar un transcrito funcional)
+  * 2861 ncRNA_gene (non coding RNA)
   * 65 pseudogene
 * ¿Cuál es el top 10 de tipo de features (columna 3) más anotados en el genoma?
   * 294399 exon
@@ -76,3 +78,5 @@ Ejemplo:
   * 2861 ncRNA_gene
  
 ## Referencias
+Sacado de Bio explain  
+Srl, B. G. (2021, July 29). lcnRNA: long non-coding RNA. Breda Genetics Srl. https://bredagenetics.com/lcnrna-long-non-coding-rna/
