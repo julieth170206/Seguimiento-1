@@ -1,6 +1,21 @@
-#Descargar el archvo 
+#Descargar el archvivo
 wget https://ftp.ensembl.org/pub/current_gff3/junco_hyemalis/Junco_hyemalis.ASM382977v1.114.gff3.gz
 
 #Descomprimir el archivo
 gunzip Junco_hyemalis.ASM382977v1.114.gff3.gz
 
+#Analisis del archivo
+
+#Para saber cuantas features contiene el archivo se puede realizar de dos maneras: la primera es usando grep -v (este flag le dice al equipo que son aquellos que no hacen match), y la segunda es abrir el archivo (cat), solo enfocarnos en la columna tres (que es type que son los features), y para ambos casos se termina con wc -l, que es el que nos va a contar las lineas.
+grep -v "^#" Junco_hyemalis.ASM382977v1.114.gff3 | wc -l
+cat Junco_hyemalis.ASM382977v1.114.gff3 | cut -f 3 | wc -l
+
+#Para saber cuantas regiones de la secuencia (cromosomas) contiene el archivo
+grep "^##sequence-region" Junco_hyemalis.ASM382977v1.114.gff3 | cut -f 3 | wc -l 
+
+#Para saber cuantos genes estan listados en el organismo. 
+cat Junco_hyemalis.ASM382977v1.114.gff3 | grep -v "^#"  | cut -f 3 | sort | uniq -c | sort -rn | grep -i "gene"
+cat Junco_hyemalis.ASM382977v1.114.gff3 | grep -v "^#" | cut -f 3 | grep -i "gene" | wc -l
+
+#Top 10 de features
+cat Junco_hyemalis.ASM382977v1.114.gff3 | grep -v "^#"  | cut -f 3 | sort | uniq -c | sort -rn | head  
